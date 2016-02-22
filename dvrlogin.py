@@ -2,7 +2,7 @@
 # coding=utf-8
 # code by 92ez.com
 # last modify time 2016-02-19
-# python telnetkey.py 1.1.1.1-1.1.2.1 200
+# python dvrlogin.py 1.1.1.1-1.1.2.1 200
 
 
 from threading import Thread
