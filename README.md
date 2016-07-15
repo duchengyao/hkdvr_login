@@ -4,4 +4,4 @@
 # How to
 <pre>python dvrlogin.py 1.1.1.1-2.2.2.2 500  // 500 为线程数</pre>
 # Notice
-脚本默认会扫描每个IP的80~90端口
+脚本默认会扫描每个IP的80~99端口

@@ -48,7 +48,7 @@ def getinfo(host):
     timeout = 5
 
     try:
-        req = requests.get(url='http://'+ username +':'+ password +'@'+ host +'/ISAPI/Security/userCheck',timeout=timeout)
+        req = requests.get(url='http://'+ username +':'+ password +'@'+ host +'/ISAPI/Security/userCheck',timeout = timeout)
         result = req.text
         status = re.findall(r'<statusValue>(.*)</statusValue>', result)
         if status[0] == '200':
@@ -57,7 +57,9 @@ def getinfo(host):
         pass
 
 if __name__ == '__main__':
-    print 'Just make a test in the extent permitted by law  (^_^)'
+    print '=========================================='
+    print '=================92ez.com================='
+    print '=========================================='
 
     req1 = requests.get('http://api.telnetscan.org/header/select.php?s=DNVRS-Webs')
     content1 = req1.content

