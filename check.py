@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
     iplist = re.findall(r'href="http://(.+?)">',content)
 
-    print '\n[Note] Total '+str(len(iplist))+" IP...\n"
+    print '\n[Note] Total '+str(len(iplist))+" items..."
     print '[Note] Running...\n'
 
     try:
