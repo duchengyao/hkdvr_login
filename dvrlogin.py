@@ -4,12 +4,9 @@
 # last modify time 2016-07-15
 # python dvrlogin.py 1.1.1.1-1.1.2.1 200
 
-import subprocess
 import threading
 import requests
 import Queue
-import time
-import json
 import sys
 import re
 
