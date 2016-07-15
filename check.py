@@ -59,7 +59,7 @@ def getinfo(host):
 if __name__ == '__main__':
     print '\n*************** HK dvr login ****************'
     print '              Author 92ez.com'
-    print '       You should know what you doing!'
+    print '       You should know what U R doing!'
     print '*********************************************\n'
 
     req1 = requests.get('http://api.telnetscan.org/header/select.php?s=DNVRS-Webs')

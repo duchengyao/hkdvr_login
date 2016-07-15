@@ -72,7 +72,7 @@ def getinfo(host):
 if __name__ == '__main__':
     print '\n*************** HK dvr login ****************'
     print '              Author 92ez.com'
-    print '       You should know what you doing!'
+    print '       You should know what U R doing!'
     print '*********************************************\n'
 
     startIp = sys.argv[1].split('-')[0]
