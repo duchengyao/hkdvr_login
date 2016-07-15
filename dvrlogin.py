@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # coding=utf-8
 # code by 92ez.com
-# last modify time 2016-02-19
+# last modify time 2016-07-15
 # python dvrlogin.py 1.1.1.1-1.1.2.1 200
 
-
-from threading import Thread
 import subprocess
+import threading
 import requests
 import Queue
 import time
@@ -29,32 +28,33 @@ def ip_range(start, end):
 
 #main function
 def bThread(iplist):
+
     threadl = []
     queue = Queue.Queue()
-    hosts = iplist
-    j = 0
-    for host in hosts:
-        queue.put([host,j])
-        j += 1
+    for host in iplist:
+        queue.put(host)
 
-    threadl = [tThread(queue) for x in xrange(0, int(sys.argv[2]))]
+    for x in xrange(0, int(sys.argv[2])):
+        threadl.append(tThread(queue))
+
     for t in threadl:
         t.start()
     for t in threadl:
         t.join()
 
 #create thread
-class tThread(Thread):
+class tThread(threading.Thread):
     def __init__(self, queue):
-        Thread.__init__(self)
+        threading.Thread.__init__(self)
         self.queue = queue
 
     def run(self):
+
         while not self.queue.empty():
             host = self.queue.get()
             try:
                 getinfo(host)
-            except Exception,e:
+            except:
                 continue
 
 def getinfo(hostinfo):
