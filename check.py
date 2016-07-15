@@ -77,4 +77,8 @@ if __name__ == '__main__':
     print '\n[Note] Total '+str(len(iplist))+" IP...\n"
     print '[Note] Running...\n'
 
-    bThread(iplist)
+    try:
+        bThread(iplist)
+    except KeyboardInterrupt:
+        print 'Keyboard Interrupt!'
+        sys.exit()

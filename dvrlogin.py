@@ -79,7 +79,13 @@ if __name__ == '__main__':
     endIp = sys.argv[1].split('-')[1]
     iplist = ip_range(startIp, endIp)
 
-    print '\n[Note] Total '+str(len(iplist))+" IP...\n"
+    print '\n[Note] Total '+str(len(iplist))+" IP..."
     print '[Note] Running...\n'
 
     bThread(iplist)
+
+    try:
+        bThread(iplist)
+    except KeyboardInterrupt:
+        print 'Keyboard Interrupt!'
+        sys.exit()
