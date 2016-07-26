@@ -69,9 +69,7 @@ if __name__ == '__main__':
     req3 = requests.get('http://api.telnetscan.org/header/select.php?s=App-webs/')
     content3 = req3.content
 
-
     content = content1+content2+content3
-
     iplist = re.findall(r'href="http://(.+?)">',content)
 
     print '\n[Note] Total '+str(len(iplist))+" items..."
