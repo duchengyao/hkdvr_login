@@ -65,7 +65,7 @@ def getinfo(host):
             result = req.text
             status = re.findall(r'<statusValue>(.*)</statusValue>', result)
             if status[0] == '200':
-                print 'Host http://'+ host +':'+ str(port) +' Login Success!'
+                print '[√] Host http://'+ host +':'+ str(port) +' Login Success!'
         except:
             pass
 
@@ -79,8 +79,8 @@ if __name__ == '__main__':
     endIp = sys.argv[1].split('-')[1]
     iplist = ip_range(startIp, endIp)
 
-    print '\n[Note] Total '+str(len(iplist))+" IP..."
-    print '[Note] Running...\n'
+    print '[*] Total '+str(len(iplist))+" IP..."
+    print '[*] Running...\n'
 
     try:
         bThread(iplist)

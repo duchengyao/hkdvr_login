@@ -52,7 +52,7 @@ def getinfo(host):
         result = req.text
         status = re.findall(r'<statusValue>(.*)</statusValue>', result)
         if status[0] == '200':
-            print 'Host http://'+ host +' Login Success!'
+            print '[√] Host http://'+ host +' Login Success!'
     except:
         pass
 
@@ -62,6 +62,7 @@ if __name__ == '__main__':
     print '       You should know what U R doing!'
     print '*********************************************\n'
 
+    print '[*] Request from api.telnetscan.org...'
     req1 = requests.get('http://api.telnetscan.org/header/select.php?s=DNVRS-Webs')
     content1 = req1.content
     req2 = requests.get('http://api.telnetscan.org/header/select.php?s=Hikvision-Webs')
@@ -72,8 +73,8 @@ if __name__ == '__main__':
     content = content1+content2+content3
     iplist = re.findall(r'href="http://(.+?)">',content)
 
-    print '\n[Note] Total '+str(len(iplist))+" items..."
-    print '[Note] Running...\n'
+    print '[*] Total '+str(len(iplist))+" items..."
+    print '[*] Running...\n'
 
     try:
         bThread(iplist)
